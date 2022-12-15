@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 04</title>
+
+        <style>
+            h2 {font-size: 64px;}
+
+            h3 {color: orange; font-size: 64px;}
+
+            li {list-style-type: none; display: inline-block; padding: 10px;}
+        </style>
+
+        <script>
+            function checkNameAndPhoneNumber(name, phoneNumber) {
+                var numericExpression = /^[A-Za-z]+$/;
+
+                if (! (name.value.match(numericExpression))) {
+                    alert("Your name can only contain letters");
+                    name.focus();
+                    return false;
+                }
+
+                var phoneExpression = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+
+                if (! (phoneNumber.value.match(phoneExpression))) {
+                    alert("Your phone number should be in the format (XXX-XXX-XXXX)");
+                    phoneNumber.focus();
+                    return false;
+                }
+
+                infoValidated(name, phoneNumber);
+            }
+
+            function infoValidated(name, phoneNumber) {
+                var address = document.getElementById('address')
+
+                document.getElementById('infoValidated').innerHTML = "Info has been validated."
+                document.getElementById('outputName').innerHTML = "Name: " + name.value;
+                document.getElementById('outputAddress').innerHTML = "Address: " + address.value;
+                document.getElementById('outputPhoneNumber').innerHTML = "Phone number: " + changeFormatPhoneNumber(phoneNumber);
+            }
+
+            function changeFormatPhoneNumber(phoneNumber) {
+                return ("(" + phoneNumber.value.slice(0, 3) + ") " + phoneNumber.value.slice(4, phoneNumber.value.length))
+            }
+
+            function countCharacters() {
+                var characters = document.getElementById("tArea").value;
+                var count = 0;
+
+                for (character in characters) {
+                    count +=1; 
+                }
+                
+                document.getElementById("outputCharacters").innerHTML = "Number of characters: " + count;
+            }
+
+            function countLetters() {
+                var characters = document.getElementById("tArea").value;
+                var count = 0;
+                var letterExpression = /^[A-Za-z]{1}$/;
+                var found = false;
+
+                for (i in characters) {
+                    if (characters[i].match(letterExpression)) {
+                        count+= 1;
+                    }
+                }
+            
+                document.getElementById("outputLetters").innerHTML = "Number of letters: " + count;
+            }
+
+            function addToBookmarks(website) {
+                var protocol = website.value.slice(0, 5).toLowerCase();
+
+                var li = document.createElement("li");
+
+                li.textContent = website.value;
+
+                if (protocol.search("https") == 0) {
+                    var img = new Image(20, 20);
+                    img.src = 'secure.png';
+                    document.getElementById("outputBookmarks").appendChild(img);
+                }
+                else if (protocol.search("http") == 0) {
+                    var img = new Image(20, 20);
+                    img.src = 'unsecure.png';
+                    document.getElementById("outputBookmarks").appendChild(img);
+                }
+                else {
+                    alert("Not a valid website: It must contain http or https in the beginning.");
+                    website.focus();
+                    return false;
+                }
+
+                document.getElementById("outputBookmarks").appendChild(li);
+
+                var br = document.createElement("br");
+
+                document.getElementById("outputBookmarks").appendChild(br);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Problem 1</h1>
+
+        <form>
+            <label>Name (Only letters):</label><br>
+            <input type="text" id="name"><br><br>
+            
+            <label>Address:</label><br>
+            <input type="text" id="address"><br><br>
+
+            <label>Phone number (XXX-XXX-XXXX):</label><br>
+            <input type="text" id="phone"><br><br>
+
+            <input type="button" onclick="checkNameAndPhoneNumber(document.getElementById('name'),
+            document.getElementById('phone'))" value="Validate Info">
+        </form>
+
+        <p id="infoValidated"></p>
+        
+        <h2 style="color: red;" id="outputName"></h2>
+        <h2 style="color: green;" id="outputAddress"></h2>
+        <h2 style="color: blue;" id="outputPhoneNumber"></h2>
+        
+        <h1>Problem 2</h1>
+
+        <form>
+            <textarea id="tArea" oninput="countCharacters(), countLetters()" rows="3" cols= "25"></textarea>
+            <h3 id="outputCharacters"></h3>
+            <h3 id="outputLetters"></h3>
+        </form>
+
+        <h1>Problem 3</h1>
+
+        <h4>Bookmarks - type in a website to add to bookmark list</h4>
+
+        <input type="text" id="bookmark" style="width: 25%;">
+
+        <input type="button" onclick="addToBookmarks(document.getElementById('bookmark'))" value="Add to bookmark">
+        
+        <ul id="outputBookmarks"></ul>
+
+    </body>
+</html>

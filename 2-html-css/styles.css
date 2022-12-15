@@ -1,0 +1,87 @@
+* {
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#cloudBanner, .cloudFooter {
+    height: 100px; 
+    width: 100%;
+}
+
+main {
+    float: left;
+    margin-left: 5%;
+}
+
+.me {
+    border: 5px solid blue;
+    margin: 1em;
+    padding: 1em;
+    height: 400px;
+    width: auto;
+}
+
+figure {
+    position: relative;
+}
+
+figcaption{
+    z-index: 1;
+    position: absolute;
+    padding-top: -10px;
+}
+
+article:hover details{
+    color: aqua;
+}
+
+aside {
+    margin-right: 5%;
+    float: right;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+aside img:hover {
+    visibility: collapse;
+}
+
+.asideImg {
+    z-index: 1;
+    height: 200px; 
+    width: 300px;
+    margin-bottom: 2.5rem;
+    margin-right: 6.5rem;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h2 {
+      color: lightblue;
+}
+
+p {
+    position: absolute;
+    z-index: 0;
+}
+
+.first {
+    margin-top: 9.5%;
+    margin-right: 8%;
+}
+
+.second {
+    margin-top: 21.5%;
+    margin-right: 7.5%;
+}
+
+.third {
+    margin-top: 33.5%;
+    margin-right: 7%;
+}

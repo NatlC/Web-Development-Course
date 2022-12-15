@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>lab05</title>
+
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+        <style>
+            body {
+                margin: 1%;
+            }
+
+            #photo {
+                height: 400px;
+                width: 600px;
+                border: black solid 5px;
+            
+            }
+
+            #blockHover {
+                position: absolute;
+                z-index: 2;
+                background-color: aqua;
+                height: 2000px;
+                width: 2000px;
+                opacity: 0;
+            }
+
+            button {
+                margin-top: 1%;
+            }
+        </style>
+            <script>    
+                    // Problem 1
+                    $(function() {
+                        $("#body").draggable();
+                        $("#hat").draggable();
+                        $("#eyes").draggable();
+                        $("#mouth").draggable();
+                        $("#nose").draggable();
+
+                        $("#photo").droppable({
+                        });
+                    });
+                
+                    function takeshot() {
+                        document.getElementById("screenshot").innerHTML = "Screenshot: Right click on image and save image as...";
+                         
+                        let div = document.getElementById("photo");
+
+                        html2canvas(div).then(
+                            function (canvas) {
+                                document.getElementById("output")
+                                .appendChild(canvas);
+                            }
+                        )
+                    }
+
+                    // Problem 2
+                    $(document).ready(function() {
+                        $("#blockHover").hide();
+                        $("#x").hide();
+                        $("#mountain").hover(function() {
+                            $("#mountain").animate({width: "1860px", height: "1080px"}, 1000);
+                            $("#x").show(800);
+                        });
+
+                        $("#x").click(function(){
+                            $("#blockHover").show(function () {
+                                $("#x").hide(500, function () {
+                                    $("#mountain").animate({width: "300px", height: "100px"}, 1000, function () {
+                                        setTimeout(function() {$("#blockHover").hide();}, 1500);
+                                    });
+                                });
+                            });
+                        });
+                    });    
+            </script>
+        </head>
+    <body>
+        <h1>Problem 1</h1>
+        <h2>Drag the parts of the Potato head to create what you want in the box:</h2>
+        <div id="photo">
+            <img id="body" src="body.png" alt="body">
+            <img style="width: 100px; height: auto;" id="hat" src="hat.png" alt="hat">
+            <img id="eyes" src="eyes.png" alt="eyes">
+            <img id="mouth" src="mouth.png" alt="mouth">
+            <img id="nose" src="nose.png" alt="nose">
+        </div>
+        <button onclick="takeshot()">Take screenshot</button>
+        <h2 id="screenshot"></h2>
+        <div id="output"></div>
+        
+        <h1>Problem 2</h1>
+        <img id="x" style="z-index: 1; position: absolute; width: 50px; height: 50px;" src="x.png" alt="x">
+        <div id="blockHover"></div>
+        <img id="mountain" style="width: 300px; height: 100px; position: relative;" src="mountains.jpg" alt="mountains">
+    </body>
+</html>

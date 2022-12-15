@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dorothy</title>
+        <link rel="stylesheet" href="stylesa.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+                
+            .col-1 {width: 8.33%;}
+            .col-2 {width: 16.66%;}
+            .col-3 {width: 25%}
+            .col-4 {width: 33.33%;}
+            .col-5 {width: 41.66%;}
+            .col-6 {width: 50%;}
+            .col-7 {width: 58.33%;}
+            .col-8 {width: 66.66%;}
+            .col-9 {width: 75%;}
+            .col-10 {width: 83.33%;}
+            .col-11 {width: 91.66%;}
+            .col-12 {width: 100%;}
+
+            [class*="col-"] {float:left; padding:15px;}
+
+            .row::after {content:""; clear:both; display:table;}
+
+            .rowFixSum::after {content:""; clear:both; display:table;}
+
+            .rowFixTop::after {content:""; clear:both; display:table;}
+
+            .rowFixBottom::after {content:""; clear:both; display:table;}
+
+            img {max-width: 100%; height: auto; margin-left: 70%}
+
+            @media only screen and (min-width: 1024px) {
+                * {
+                    color: white;
+                    background-color: black;
+                }
+
+                h1, h2, p {
+                    background-color: rgba(0, 0, 0, 0.01);
+                }
+
+                .rowFixTop {
+                    margin-left: 20%;
+                }
+
+                .rowFixSum {
+                    margin-left: 17.5%;
+                }
+
+                .rowFixBottom {
+                    margin-left: 21%;
+                }
+            }
+
+            @media only screen and (max-width: 1024px) {
+                .col-3{width: 100%; margin-left: 1%; margin-right: 1%;}
+                .col-4{width: 100%;}
+                .col-2{width: 50%;}   
+                img {max-width: 150%; height: auto; margin-left: 50%}
+            }
+
+            @media only screen and (min-width:320px) and 
+            (max-width:767px) and (orientation:portrait) {
+                * {
+                    color: white;
+                    background-color: black;
+                }
+
+                h1, h2, p {
+                    background-color: rgba(0, 0, 0, 0.01);
+                }
+                .col-2{width: 100%;}
+                img {max-width: 200%; margin-left: 30%}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="rowFixTop">
+            <div class="col-4" style="background-color: lightseagreen">
+                <h1 style="text-align: center;">Dorothy</h1>
+            </div>
+
+            <div class="col-4">
+                <p style="text-align: center; margin-top: -1%">
+                    This picture shows a chicken that the president of PETA, Ingrid Newkirk, enjoys the presence of the animal.
+                </p>
+            </div>      
+        </div>
+
+        <div class="row">
+            <div class="col-5">
+                <img src="dorothy.webp" alt="dorothy">
+            </div>
+        </div>
+
+        <div class="rowFixSum">
+            <div class="col-3"> 
+                <p>
+                    When she created an email about the type of chickens she prefers, Ingrid Newkirk states that she had an 
+                    emotional attachment to Dorothy because she did not have a wing at a county fair; therefore, the chicken 
+                    was about to be discarded for human consumption.
+                </p>
+            </div>
+
+            <div class="col-3">
+                <p>
+                    After she saved the chicken, she gave out a prize which was 1 million dollars, for the first in-vitro 
+                    chicken and realized that she wanted to save all chickens.
+                </p>
+            </div>
+
+            <div class="col-3">
+                <p>
+                    Dorothy was the first chicken that was operated on in her mobile clinic due to how vets use unethical 
+                    methods to rescue the chicken. Ingrid Newkirk believes that all chickens should be treated fairly 
+                    because they have their own thoughts and feelings.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h1 style="text-align: center; margin-left: -5%">4 words that Dorothy is known for:</h1>
+            </div>
+        </div>
+
+        <div class="rowFixBottom">
+            <div class="col-2" style="text-align: center; background-color: lightcoral;">
+                <h2>Adorable</h2>
+            </div>
+
+            <div class="col-2" style="text-align: center; background-color: lightblue;">
+                <h2>Cool</h2>
+            </div>
+
+            <div class="col-2" style="text-align: center; background-color: lightsalmon;">
+                <h2>Warm</h2>
+            </div>
+
+            <div class="col-2" style="text-align: center; background-color: green;">
+                <h2>Delicious</h2>
+            </div>
+        </div>
+    </body>
+</html>
