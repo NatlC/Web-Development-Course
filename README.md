@@ -19,5 +19,3 @@ This is all my coursework - All of them recieved 100%.
 10. http://lab10-cps530.somee.com/
     https://www2.cs.ryerson.ca/~n12chan/cgi-bin/lab10b.html
     https://www.cs.ryerson.ca/~n12chan/Lab10/lab10c.html
-
-Others require Universities' VPN to view.
